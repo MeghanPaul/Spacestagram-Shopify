@@ -66,6 +66,7 @@ function displayData(data){
     descEl.textContent = desc;
 
     likeSetEl.setAttribute("class","like-set");
+    likeSetEl.setAttribute("like-state","none");
 
     likeIconEl.setAttribute("id","like-icon");
     likeIconEl.setAttribute("src","./assets/images/arrow-down-square.svg");
@@ -82,4 +83,41 @@ function displayData(data){
     textEl.appendChild(likeSetEl);
     likeSetEl.appendChild(likeIconEl);
     likeSetEl.appendChild(dislikeIconEl);
+
+    likeIconEl.addEventListener("click", function(event) {
+        var button = event.target;
+        var likeSet = button.parentNode;
+        var likeState = likeSet.getAttribute("like-state");
+    
+        if(likeState == "none" || likeState == "dislike")
+        {
+            likeSet.setAttribute("like-state","like");
+            button.setAttribute("src","./assets/images/arrow-down-square-fill.svg");
+            button.nextSibling.setAttribute("src","./assets/images/arrow-down-square.svg");
+        }else if(likeState == "like")
+        {
+            likeSet.setAttribute("like-state","none");
+            button.setAttribute("src","./assets/images/arrow-down-square.svg");
+        }
+    });
+
+    dislikeIconEl.addEventListener("click", function(event) {
+        var button = event.target;
+        var likeSet = button.parentNode;
+        var likeState = likeSet.getAttribute("like-state");
+
+        if(likeState == "none" || likeState == "like")
+        {
+            likeSet.setAttribute("like-state","dislike");
+            button.setAttribute("src","./assets/images/arrow-down-square-fill.svg");
+            button.previousSibling.setAttribute("src","./assets/images/arrow-down-square.svg");
+        }else if(likeState == "dislike")
+        {
+            likeSet.setAttribute("like-state","none");
+            button.setAttribute("src","./assets/images/arrow-down-square.svg");
+        }
+    });
 }
+
+var likeButton = document.querySelector("#like-icon");
+

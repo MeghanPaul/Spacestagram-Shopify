@@ -29,15 +29,17 @@ header h2 {
     width: 70%;
     margin: 40px 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .main-image {
-    margin: 30px 0px 30px 30px;
+    margin: 30px 30px 30px 30px;
+    width: 70%;
     flex: 1 70%;
+    
 }
 
 .text {
-    flex: 1 30%;
     margin: 15px;
 }
 
