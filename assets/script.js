@@ -6,7 +6,9 @@ var date = "";
 var desc = "";
 var url = "";
 
-function fetchData() {
+var today = new Date();
+
+function fetchData(date) {
     try {
         fetch(baseUrl+apiKey)
         .then(response=>response.json())
@@ -20,11 +22,12 @@ function fetchData() {
     }
 }
 
-fetchData();
+//fetchData(fetchDate);
+fetchData("&count=1");
 
-
+var isoDate = "";
 for(var i=0; i < 10; i++) {
-    
+    fetchData("&count=10&");
 }
 
 function displayData(data){
@@ -76,7 +79,7 @@ function displayData(data){
     textEl.appendChild(titleEl);
     textEl.appendChild(dateEl);
     textEl.appendChild(descEl);
-    cardEl.appendChild(likeSetEl);
+    textEl.appendChild(likeSetEl);
     likeSetEl.appendChild(likeIconEl);
     likeSetEl.appendChild(dislikeIconEl);
 }

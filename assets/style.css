@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    background-color: #f9fbfd;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header {
+    display: flex;
+    flex: 0 100%;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 0 30px 0;
+}
+
+header h1 {
+    margin: 0 30px;
+}
+
+header h2 {
+    margin: 0 25px;
+}
+
+.card {
+    background-color: orange;
+    color: white;
+    border: solid 3px black;
+    width: 70%;
+    margin: 40px 0;
+    display: flex;
+}
+
+.main-image {
+    margin: 30px 0px 30px 30px;
+    flex: 1 70%;
+}
+
+.text {
+    flex: 1 30%;
+    margin: 15px;
+}
+
+.like-set img {
+    margin: 15px;
+    width: 30px;
+}
+
+#like-icon {
+    transform: rotate(180deg);
+}
