@@ -7,10 +7,11 @@ var desc = "";
 var url = "";
 
 var today = new Date();
+var fetchingDate = new Date();
 
 function fetchData(date) {
     try {
-        fetch(baseUrl+apiKey)
+        fetch(baseUrl+apiKey+date)
         .then(response=>response.json())
         .then(json=>{
             console.log(json);
@@ -23,17 +24,19 @@ function fetchData(date) {
 }
 
 //fetchData(fetchDate);
-fetchData("&count=1");
+//fetchData("&count=1");
 
-var isoDate = "";
-for(var i=0; i < 10; i++) {
-    fetchData("&count=10&");
+
+for(var i=1; i < 11; i++) {
+    fetchingDate.setDate(today.getDate()-i);
+    console.log("fetching date: " + fetchingDate);
+    fetchData("&date="+ fetchingDate.toISOString().slice(0,10) +"&");
 }
 
 function displayData(data){
     //create the elements required for one image card
     var cardEl = document.createElement("section");
-    var imgEl = document.createElement("img");
+    var imgEl;
     var textEl = document.createElement("div");
     var titleEl = document.createElement("h3");
     var dateEl = document.createElement("h4");
@@ -41,6 +44,15 @@ function displayData(data){
     var likeSetEl = document.createElement("div");
     var likeIconEl = document.createElement("img");
     var dislikeIconEl = document.createElement("img");
+    var shareIconEl = document.createElement("img");
+
+    if(data.media_type=="video")
+    {
+        imgEl = document.createElement("iframe");
+    }else
+    {
+        imgEl = document.createElement("img");
+    }
 
     title = data.title;
     date = data.date;
@@ -74,6 +86,11 @@ function displayData(data){
     dislikeIconEl.setAttribute("id","dislike-icon");
     dislikeIconEl.setAttribute("src","./assets/images/arrow-down-square.svg");
 
+    shareIconEl.setAttribute("id","share-icon");
+    shareIconEl.setAttribute("src","./assets/images/share.svg");
+    shareIconEl.setAttribute("filled", "false");
+    shareIconEl.setAttribute("thisLink", url);
+
     document.body.appendChild(cardEl);
     cardEl.appendChild(imgEl);
     cardEl.appendChild(textEl);
@@ -83,6 +100,7 @@ function displayData(data){
     textEl.appendChild(likeSetEl);
     likeSetEl.appendChild(likeIconEl);
     likeSetEl.appendChild(dislikeIconEl);
+    likeSetEl.appendChild(shareIconEl);
 
     likeIconEl.addEventListener("click", function(event) {
         var button = event.target;
@@ -116,6 +134,23 @@ function displayData(data){
             likeSet.setAttribute("like-state","none");
             button.setAttribute("src","./assets/images/arrow-down-square.svg");
         }
+    });
+
+    shareIconEl.addEventListener("click", function(event) {
+        console.log("share button clicked");
+        var button = event.target;
+
+        if(button.getAttribute("filled")=="false")
+        {
+            var linkBoxEl = document.createElement("div");
+            linkBoxEl.setAttribute("class","link-box");
+            linkBoxEl.textContent = button.getAttribute("thisLink");
+            likeSetEl.appendChild(linkBoxEl);
+
+            button.setAttribute("src","./assets/images/share-fill.svg");
+            button.setAttribute("filled","true");
+        }
+        
     });
 }
 

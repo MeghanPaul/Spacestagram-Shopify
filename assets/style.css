@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
-    background-color: #f9fbfd;
+    background-color: #A7DDFA;
+    color: #091C26;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -23,20 +24,32 @@ header h2 {
 }
 
 .card {
-    background-color: orange;
+    background-color: #3DACE8;
     color: white;
-    border: solid 3px black;
+    border: solid 3px #091C26;
     width: 70%;
     margin: 40px 0;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.card iframe {
+    width: 70%;
+    height: 60vh;
 }
 
 .main-image {
     margin: 30px 30px 30px 30px;
     width: 70%;
     flex: 1 70%;
+    border-radius: 15px;
     
+}
+
+.link-box {
+    font-weight: bold;
 }
 
 .text {
