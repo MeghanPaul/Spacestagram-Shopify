@@ -8,6 +8,9 @@ When the share button is clicked, it will become filled, and the url for the ima
 ### Tools Used
 HTML, CSS, JavaScript
 
+### Deployed Application
+https://meghanpaul.github.io/Spacestagram-Shopify/
+
 ### Screenshot
 ![Spacestagram Snapshot](https://user-images.githubusercontent.com/26824874/150271393-56198b4e-920c-4ea0-9017-19207c5e72a3.png)
 
