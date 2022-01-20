@@ -8,11 +8,16 @@ body {
 }
 
 header {
+    background-color: #A7DDFA;
     display: flex;
     flex: 0 100%;
     width: 100%;
     justify-content: space-between;
     padding: 20px 0 30px 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
 }
 
 header h1 {
@@ -54,6 +59,11 @@ header h2 {
 
 .text {
     margin: 15px;
+}
+
+.text p {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .like-set img {
