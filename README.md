@@ -6,7 +6,7 @@ Each set of like and dislike buttons are mutually exclusive. If "like" is active
 When the share button is clicked, it will become filled, and the url for the image shown on that card will be displayed below the button set for the user to copy.
 
 ### Tools Used
-HTML, CSS, JavaScript
+HTML, CSS, JavaScript, JQuery, NASA's APOD API
 
 ### Deployed Application
 https://meghanpaul.github.io/Spacestagram-Shopify/
